@@ -1,8 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/chsimon/philo'
-gcc -Wall -Wextra -Werror -g3 -g -pthread  -I inc -c main.c -o main.o 
-gcc -Wall -Wextra -Werror -g3 -g -pthread  -I inc -c sc_threading.c -o sc_threading.o 
-gcc -Wall -Wextra -Werror -g3 -g -pthread  -I inc -c sc_time.c -o sc_time.o 
-gcc -Wall -Wextra -Werror -g3 -g -pthread  main.o sc_threading.o sc_time.o -o philo -I inc
+make -C my_lib/
+gcc -Wall -Wextra -Werror -g3 -g -pthread -L my_lib  -o philo -I inc -I my_lib/includes -l_my
 make: Leaving directory '/mnt/nfs/homes/chsimon/philo'
  

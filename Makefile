@@ -1,32 +1,64 @@
-NAME =	philo
-CC=gcc
-CFLAGS=	-Wall -Wextra -Werror -g3 -g -pthread 
+NAME 	=	philo
 
-SRCS=	main.c \
-sc_threading.c\
-sc_time.c\
+SRC		=	$(addsuffix .c, \
+	main \
+	sc_threading \
+	sc_time \
+)
 
-RM= rm -f
-OBJ= $(SRCS:.c=.o)
+SRC_DIR	=	src
 
-INCS= -I inc
+OBJ_DIR	=	obj
+OBJ		=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-all : $(MY_LIB) $(NAME)
+DEPS	=	$(OBJ:.o=.d)
 
-$(NAME) :  $(OBJ) 
-	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INCS)
+CC		=	gcc
+CFLAGS 	=	-Wall -Wextra -Werror -g3 -g -pthread
+FCFLAGS =	-Wall -Wextra -Werror -g3 -fsanitize=address -g -pthread
 
-.c.o :
-	$(CC) $(CFLAGS) $(INCS) -c $< -o $@ 
+RM 		=	rm -rf
+
+INCS 	=	-I inc -I my_lib/includes
+
+MY_LIB 	=	my_lib/lib_my.a
+
+PATH_LIB=	my_lib/
+LIB		=	lib_my.a
+MAKELIB	=	make -C $(PATH_LIB)
+
+
+all : $(NAME)
+
+$(NAME) : $(LIB) $(OBJ) 
+	$(CC) $(CFLAGS) $(OBJ) -L my_lib -o $@ $(INCS) -l_my
+
+$(LIB):
+	$(MAKELIB)
+
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+
+my_lib/lib_my.a:
+	make -C my_lib all
+
+testf: $(MY_LIB) $(OBJ)
+	$(CC) $(FCFLAGS) $(OBJ) -L my_lib -o $(NAME) $(INCS) -l_my
+	@./$(NAME)
+
 
 testv : all
 	valgrind ./$(NAME)
 
 clean :	
+	make -C my_lib clean
 	$(RM) $(OBJ) $(BOBJ)
 
 fclean : clean
+	make -C my_lib fclean
 	$(RM) $(NAME)
+	$(RM) my_lib/lib_my.a
 
 re : 	
 		make fclean
