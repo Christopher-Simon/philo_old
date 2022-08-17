@@ -3,6 +3,13 @@ NAME 	=	philo
 SRC		=	$(addsuffix .c, \
 	main \
 	sc_threading \
+	threadator \
+	routine \
+	init \
+	init_mutex \
+	init_time \
+	params_utils \
+	sc_mutex \
 	sc_time \
 )
 
