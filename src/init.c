@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:42:22 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/16 13:34:57 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/22 18:55:02 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	print_philo(t_philo *philo)
 	while (i < nb_philo)
 	{
 		printf("je suis le philo %d\n", philo[i].id);
+		printf("je suis le philo %p\n", &philo[i].id);
 		i++;
 	}
 }
@@ -63,15 +64,15 @@ int	set_philo(t_philo *philo, int nb_philo, char **argv)
 	params = get_params(argv);
 	if (!params)
 		return (1);
-	i = 0;
-	while (i < nb_philo)
+	i = 1;
+	while (i <= nb_philo)
 	{
-		philo[i].id = i;
-		if (i + 1 != nb_philo)
-			philo[i].next_id = i + 1;
+		philo[i - 1].id = i;
+		if (i == nb_philo)
+			philo[i - 1].next_id = 1;
 		else
-			philo[i].next_id = 0;
-		philo[i].params = params;
+			philo[i - 1].next_id = i + 1;
+		philo[i - 1].params = params;
 		i++;
 	}
 	return (0);

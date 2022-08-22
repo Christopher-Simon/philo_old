@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mutex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:51:16 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/16 13:35:04 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/22 18:26:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ int	init_mutex(t_params *params)
 		return (1);
 	if (sc_pthread_mutex_init(&params->m_speak, NULL))
 	{
+		end_mutex(params->m_fork, params->fork);
+		return (1);
+	}
+	if (sc_pthread_mutex_init(&params->m_go, NULL))
+	{
+		sc_pthread_mutex_destroy(&params->m_speak);
 		end_mutex(params->m_fork, params->fork);
 		return (1);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:41:05 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/16 13:35:25 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/22 18:55:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	philo(char **argv)
 		free(philo);
 		return (1);
 	}
-	ret = threadator(philo);
+	ret = threadator(philo, philo[0].params);
 	destroy_philo(philo);
 	return (ret);
 }

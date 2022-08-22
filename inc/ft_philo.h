@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/16 14:37:17 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/22 18:25:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,26 @@
 
 typedef struct s_params
 {
-	pthread_mutex_t		*m_fork;
-	pthread_mutex_t		m_speak;
-	suseconds_t 		init_time;
-	int					fork;
-	int					time_to_die;
-	int					time_to_eat;
-	int					time_to_sleep;
-	int					round;
-	int					*blocked;
-	int					nb;
+	pthread_mutex_t	*m_fork;
+	pthread_mutex_t	m_speak;
+	pthread_mutex_t	m_go;
+	suseconds_t 	init_time;
+	int				fork;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				round;
+	int				*blocked;
+	int				nb;
 } t_params;
 
 
 typedef struct s_philo
 {
-	int				id;
-	int				next_id;
-	t_params		*params;
+	int			id;
+	int			next_id;
+	t_params	*params;
+	suseconds_t wait_time;
 } t_philo;
 
 
@@ -66,6 +68,7 @@ int			sc_gettimeofday(struct timeval *restrict tv, struct timezone *restrict tz)
 t_params	*get_params(char **argv);
 t_philo		*init_struct_philo(char **argv);
 int			destroy_philo(t_philo *philo);
+void		print_philo(t_philo *philo);
 
 //INIT MUTEX
 int	init_mutex(t_params *params);
@@ -76,7 +79,7 @@ suseconds_t		get_time();
 suseconds_t		get_elapsed_time(suseconds_t time1, suseconds_t time2);
 
 //THREADATOR
-int	threadator(t_philo *philo);
+int	threadator(t_philo *philo, t_params *params);
 
 //ROUTINE
 void	*routine(void *arg);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:33:46 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/16 14:51:45 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/22 19:05:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@ void	speak(t_philo philo, char *msg)
 
 	elapsed = get_time();
 	pthread_mutex_lock(&philo.params->m_speak);
-	printf("%ld %d %s\n", get_elapsed_time(philo.params->init_time, elapsed), philo.id, msg);
+	printf("%ld %d %s\n", get_elapsed_time(philo.wait_time, elapsed), philo.id, msg);
 	pthread_mutex_unlock(&philo.params->m_speak);
-	
 }
 
-void	block_first_turn(t_philo philo)
+void	catch_fork(t_philo philo)
 {
-	if (philo.id % 2)
-		speak(philo, TAKE);
+	pthread_mutex_lock(&philo.params->m_fork[philo.id]);
+	pthread_mutex_lock(&philo.params->m_fork[philo.next_id]);
+	speak(philo, EAT);
+	usleep(10000);
+	pthread_mutex_unlock(&philo.params->m_fork[philo.id]);
+	pthread_mutex_unlock(&philo.params->m_fork[philo.next_id]);
+	speak(philo, SLEEP);
 }
 
 void	*routine(void *arg)
@@ -34,8 +38,7 @@ void	*routine(void *arg)
 	t_philo philo;
 
 	philo = *(t_philo *)arg;
-	block_first_turn(philo);
-	usleep(10000);
-	(void)philo;
+	philo.wait_time = get_time();
+	catch_fork(philo);
 	return (NULL);
 }
