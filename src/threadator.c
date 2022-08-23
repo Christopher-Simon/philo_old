@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:26:40 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/22 18:38:40 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/23 18:34:17 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ int	threadator(t_philo *philo, t_params *params)
 	th_philo = malloc(sizeof(pthread_t) * nb_philo);
 	if (!th_philo)
 		return (1);
+	philo[0].init_time = get_time();
 	pthread_mutex_lock(&params->m_go);
-	philo[0].params->init_time = get_time();
+	printf("%d\n", philo[0].time_to_die);
+	printf("%ld\n", philo[0].init_time);
 	while (i < nb_philo)
 	{
 		if (sc_pthread_create(&th_philo[i], NULL, &routine, &philo[i]))

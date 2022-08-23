@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/22 18:25:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/23 17:42:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,17 @@
 # include <sys/time.h>
 # include <errno.h>
 
-# define TAKE "has taken a fork"
-# define EAT "is eating"
-# define SLEEP "is sleeping"
-# define DIE "died"
+# define TAKE	"has taken a fork"
+# define EAT	"is eating"
+# define SLEEP	"is sleeping"
+# define DIE	"died"
 
 typedef struct s_params
 {
 	pthread_mutex_t	*m_fork;
 	pthread_mutex_t	m_speak;
 	pthread_mutex_t	m_go;
-	suseconds_t 	init_time;
 	int				fork;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				round;
-	int				*blocked;
-	int				nb;
 } t_params;
 
 
@@ -47,7 +40,13 @@ typedef struct s_philo
 	int			id;
 	int			next_id;
 	t_params	*params;
-	suseconds_t wait_time;
+	time_t		wait_time;
+	time_t		init_time;
+	time_t		restored_time;
+	int			time_to_die;
+	int			time_to_eat;
+	int			time_to_sleep;
+	int			round;
 } t_philo;
 
 
@@ -75,8 +74,8 @@ int	init_mutex(t_params *params);
 int	end_mutex(pthread_mutex_t *mutex, int nb);
 
 //TIME
-suseconds_t		get_time();
-suseconds_t		get_elapsed_time(suseconds_t time1, suseconds_t time2);
+time_t		get_time();
+time_t		get_elapsed_time(suseconds_t time1, suseconds_t time2);
 
 //THREADATOR
 int	threadator(t_philo *philo, t_params *params);

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 22 18:05:06 2022
+# Make data base, printed on Tue Aug 23 16:28:04 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ _ = /usr/bin/code
 # makefile (from 'Makefile', line 24)
 CFLAGS = -Wall -Wextra -Werror -g3 -g -pthread
 # environment
-JOURNAL_STREAM = 9:1602616
+JOURNAL_STREAM = 9:2359116
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 25)
@@ -75,15 +75,15 @@ XDG_DATA_DIRS = /usr/share/gnome:/usr/share/ubuntu:/mnt/nfs/homes/chsimon/.local
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/40599/bus
 # environment
-MANAGERPID = 246201
+MANAGERPID = 401333
 # makefile (from 'Makefile', line 29)
 INCS = -I inc -I my_lib/includes
 # environment
 VSCODE_CWD = /mnt/nfs/homes/chsimon/philo
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_40599_IGOjTF
+KRB5CCNAME = FILE:/tmp/krb5cc_40599_AsOwJJ
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -93,7 +93,7 @@ GPG_AGENT_INFO = /run/user/40599/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r7p15.clusters.42paris.fr:@/tmp/.ICE-unix/246732,unix/e1r7p15.clusters.42paris.fr:/tmp/.ICE-unix/246732
+SESSION_MANAGER = local/e1r3p10.clusters.42paris.fr:@/tmp/.ICE-unix/401870,unix/e1r3p10.clusters.42paris.fr:/tmp/.ICE-unix/401870
 # environment
 XDG_RUNTIME_DIR = /run/user/40599
 # environment
@@ -101,7 +101,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 609511cd29224174a291fe225d3e7d1d
+INVOCATION_ID = 828d00274a704421ace0b49a790496cc
 # makefile (from 'Makefile', line 34)
 LIB = lib_my.a
 # default
@@ -119,7 +119,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/40599/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 247639
+GIO_LAUNCHED_DESKTOP_FILE_PID = 403882
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +129,7 @@ PWD = /mnt/nfs/homes/chsimon/philo
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 246696
+SSH_AGENT_PID = 401834
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -171,7 +171,7 @@ SHLVL = 2
 # makefile (from 'Makefile', line 23)
 CC = gcc
 # environment
-TERMINATOR_UUID = urn:uuid:8a5a0570-21be-4a1e-8b50-521731326cdd
+TERMINATOR_UUID = urn:uuid:c3ba7b8f-b2a8-4d39-9011-5ae4b4f6ad11
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -253,7 +253,7 @@ TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
 DOCKER_HOST = unix:///run/user/40599/docker.sock
 # environment
-VSCODE_PID = 248673
+VSCODE_PID = 404007
 # variable set hash-table stats:
 # Load=122/1024=12%, Rehash=0, Collisions=26/165=16%
 
@@ -263,8 +263,8 @@ VSCODE_PID = 248673
 
 # Directories
 
-# . (device 59, inode 231807431): 10 files, no impossibilities.
-# src (device 59, inode 285190648): No files, no impossibilities so far.
+# . (device 55, inode 231807431): 10 files, no impossibilities.
+# src (device 55, inode 285190648): No files, no impossibilities so far.
 
 # 10 files, no impossibilities in 2 directories.
 
@@ -332,7 +332,7 @@ all: philo
 
 philo: lib_my.a obj/main.o obj/sc_threading.o obj/threadator.o obj/routine.o obj/init.o obj/init_mutex.o obj/init_time.o obj/params_utils.o obj/sc_mutex.o obj/sc_time.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-22 16:17:19.950297399
+#  Last modified 2022-08-23 12:27:01.101435768
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -481,6 +481,6 @@ obj/sc_mutex.o:
 # strcache performance: lookups = 73 / hit rate = 50%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/73=1%
-# Finished Make data base on Mon Aug 22 18:05:06 2022
+# Finished Make data base on Tue Aug 23 16:28:04 2022
 
  
