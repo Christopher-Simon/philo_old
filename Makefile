@@ -5,7 +5,9 @@ SRC		=	$(addsuffix .c, \
 	sc_threading \
 	threadator \
 	routine \
+	routine_utils \
 	init \
+	init_db \
 	init_mutex \
 	init_time \
 	params_utils \
@@ -56,6 +58,7 @@ testf: $(MY_LIB) $(OBJ)
 
 
 testv : all
+	--tool=drd \
 	valgrind ./$(NAME)
 
 clean :	

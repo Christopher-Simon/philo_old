@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/23 17:42:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/24 18:16:09 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@
 # define SLEEP	"is sleeping"
 # define DIE	"died"
 
+# define DB_PARAMS	1
+# define DB_PHILO	1
+# define DB_PRMS_TH	1
+
 typedef struct s_params
 {
 	pthread_mutex_t	*m_fork;
 	pthread_mutex_t	m_speak;
-	pthread_mutex_t	m_go;
 	int				fork;
 } t_params;
 
@@ -38,11 +41,13 @@ typedef struct s_params
 typedef struct s_philo
 {
 	int			id;
-	int			next_id;
+	int			fork;
+	int			next_fork;
 	t_params	*params;
-	time_t		wait_time;
+	// time_t		wait_time;
 	time_t		init_time;
-	time_t		restored_time;
+	time_t		cycle_time;
+	// time_t		restored_time;
 	int			time_to_die;
 	int			time_to_eat;
 	int			time_to_sleep;
@@ -65,9 +70,13 @@ int			sc_gettimeofday(struct timeval *restrict tv, struct timezone *restrict tz)
 
 //INIT
 t_params	*get_params(char **argv);
-t_philo		*init_struct_philo(char **argv);
+int			init_struct_philo(char **argv,t_philo **philo);
 int			destroy_philo(t_philo *philo);
 void		print_philo(t_philo *philo);
+
+//INIT DB
+void	print_params(t_params *params, t_philo philo);
+void	print_philo(t_philo *philo);
 
 //INIT MUTEX
 int	init_mutex(t_params *params);
@@ -82,5 +91,7 @@ int	threadator(t_philo *philo, t_params *params);
 
 //ROUTINE
 void	*routine(void *arg);
+int		saint_chro_start(t_philo philo);
+int		is_dead(t_philo philo);
 
 #endif

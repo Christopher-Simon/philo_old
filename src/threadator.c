@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:26:40 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/23 18:34:17 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/24 17:04:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	end_philo_thread(int nb, pthread_t	*th_philo)
 int	set_time_philo(t_philo *philo, int nb_philo)
 {
 	int			i;
-	suseconds_t	start_time;
+	time_t		start_time;
 
 	i = 0;
 	start_time = get_time();
@@ -38,28 +38,17 @@ int	set_time_philo(t_philo *philo, int nb_philo)
 		return (1);
 	while (i < nb_philo)
 	{
-		philo[i].wait_time = start_time + 1000;
+		philo[i].init_time = start_time + 1000;
 		i++;
 	}
 	return (0);
 }
 
-
-int	threadator(t_philo *philo, t_params *params)
+int	create_thread(t_philo *philo, pthread_t *th_philo, int nb_philo)
 {
-	pthread_t	*th_philo;
-	int			nb_philo;
-	int			i;
+	int	i;
 
 	i = 0;
-	nb_philo = philo[0].params->fork;
-	th_philo = malloc(sizeof(pthread_t) * nb_philo);
-	if (!th_philo)
-		return (1);
-	philo[0].init_time = get_time();
-	pthread_mutex_lock(&params->m_go);
-	printf("%d\n", philo[0].time_to_die);
-	printf("%ld\n", philo[0].init_time);
 	while (i < nb_philo)
 	{
 		if (sc_pthread_create(&th_philo[i], NULL, &routine, &philo[i]))
@@ -70,9 +59,24 @@ int	threadator(t_philo *philo, t_params *params)
 		}
 		i++;
 	}
-	// if (set_time_philo(philo, nb_philo))
-	// 	return (1); //TODO SECU
-	pthread_mutex_unlock(&params->m_go);
+	return (0);
+}
+
+
+int	threadator(t_philo *philo, t_params *params)
+{
+	pthread_t	*th_philo;
+	int			nb_philo;
+
+	(void)params;
+	nb_philo = philo[0].params->fork;
+	th_philo = malloc(sizeof(pthread_t) * nb_philo);
+	if (!th_philo)
+		return (1);
+	set_time_philo(philo, nb_philo); //TODO secu
+	if (create_thread(philo, th_philo, nb_philo))
+		return (1);
+	printf("init-time : %ld\n", philo[0].init_time);
 	end_philo_thread(nb_philo, th_philo);
 	return (0);
 }

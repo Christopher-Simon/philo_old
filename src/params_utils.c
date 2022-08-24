@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   params_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
+/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:40:17 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/16 12:55:17 by christopher      ###   ########.fr       */
+/*   Updated: 2022/08/24 15:23:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	destroy_params(t_params *params)
 	// 	i++;
 	// }
 	end_mutex(params->m_fork, params->fork);
+	sc_pthread_mutex_destroy(&params->m_speak);
 	free(params);
 	return (0);
 }
