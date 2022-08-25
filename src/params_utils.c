@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:40:17 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/24 15:23:37 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 16:23:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,10 @@ int	end_mutex(pthread_mutex_t *mutex, int nb)
 
 int	destroy_params(t_params *params)
 {
-	// int	i;
-
-	// i = 0;
-	// while (i < params->fork)
-	// {
-	// 	sc_pthread_mutex_destroy(&params->m_fork[i]);
-	// 	i++;
-	// }
 	end_mutex(params->m_fork, params->fork);
 	sc_pthread_mutex_destroy(&params->m_speak);
+	sc_pthread_mutex_destroy(&params->m_death);
+	free(params->used);
 	free(params);
 	return (0);
 }

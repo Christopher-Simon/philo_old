@@ -24,7 +24,7 @@ DEPS	=	$(OBJ:.o=.d)
 
 CC		=	gcc
 CFLAGS 	=	-Wall -Wextra -Werror -g3 -g -pthread
-FCFLAGS =	-Wall -Wextra -Werror -g3 -fsanitize=address -g -pthread
+FCFLAGS =	-Wall -Wextra -Werror -g3 -fsanitize=thread -g -pthread
 
 RM 		=	rm -rf
 
@@ -54,7 +54,7 @@ my_lib/lib_my.a:
 
 testf: $(MY_LIB) $(OBJ)
 	$(CC) $(FCFLAGS) $(OBJ) -L my_lib -o $(NAME) $(INCS) -l_my
-	@./$(NAME)
+	# @./$(NAME)
 
 
 testv : all

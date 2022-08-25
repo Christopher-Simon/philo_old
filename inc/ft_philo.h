@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/24 18:16:09 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 19:12:06 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 # define EAT	"is eating"
 # define SLEEP	"is sleeping"
 # define DIE	"died"
+# define THINK	"is thinking"
+
+# define DISPO		0
+# define UNDISPO	1
+
+//DEFINE DEBUG
 
 # define DB_PARAMS	1
 # define DB_PHILO	1
@@ -33,8 +39,11 @@
 typedef struct s_params
 {
 	pthread_mutex_t	*m_fork;
+	int				*used;
 	pthread_mutex_t	m_speak;
 	int				fork;
+	int				death;
+	pthread_mutex_t	m_death;
 } t_params;
 
 
@@ -52,6 +61,7 @@ typedef struct s_philo
 	int			time_to_eat;
 	int			time_to_sleep;
 	int			round;
+	int			impair;
 } t_philo;
 
 
@@ -79,19 +89,21 @@ void	print_params(t_params *params, t_philo philo);
 void	print_philo(t_philo *philo);
 
 //INIT MUTEX
-int	init_mutex(t_params *params);
-int	end_mutex(pthread_mutex_t *mutex, int nb);
+int		init_mutex(t_params *params);
+int		end_mutex(pthread_mutex_t *mutex, int nb);
 
 //TIME
 time_t		get_time();
 time_t		get_elapsed_time(suseconds_t time1, suseconds_t time2);
 
 //THREADATOR
-int	threadator(t_philo *philo, t_params *params);
+int		threadator(t_philo *philo, t_params *params);
 
 //ROUTINE
 void	*routine(void *arg);
+int		speak(t_philo philo, char *msg);
 int		saint_chro_start(t_philo philo);
 int		is_dead(t_philo philo);
+int		is_one_dead(t_philo philo);
 
 #endif

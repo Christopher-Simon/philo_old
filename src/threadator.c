@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:26:40 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/24 17:04:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 15:33:50 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	create_thread(t_philo *philo, pthread_t *th_philo, int nb_philo)
 	}
 	return (0);
 }
-
 
 int	threadator(t_philo *philo, t_params *params)
 {
