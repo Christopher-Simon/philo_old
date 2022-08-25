@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 13:42:37 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/25 18:32:30 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 20:33:00 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,40 @@ int	is_dead(t_philo philo)
 		pthread_mutex_unlock(&philo.params->m_death);
 	}
 	return (ret);
+}
+
+int	is_gonna_die(time_t wait_time, time_t death_time)
+{
+	if (wait_time > death_time)
+		return (1);
+	return (0);
+}
+
+
+elapsed
+init_time
+cycle
+
+death if
+
+cycle + attente + eat + sleep
+
+
+
+cycle + attente + die
+
+pour le eat :
+cycle + eat < cycle + die
+
+pour le sleep : 
+cycle + attente + sleep < cycle + die
+
+check la mort avant de chopper les fourchettes
+
+
+
+int	wait(time_t wait_time)
+{
+	while (!ret && wait_time >= get_time())
+		usleep(50);
 }

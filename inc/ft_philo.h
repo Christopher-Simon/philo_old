@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/25 19:12:06 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 20:22:12 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,8 @@ int		speak(t_philo philo, char *msg);
 int		saint_chro_start(t_philo philo);
 int		is_dead(t_philo philo);
 int		is_one_dead(t_philo philo);
+
+int		is_gonna_die(time_t wait_time, time_t death_time);
+int		wait(time_t wait_time);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:33:46 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/25 19:01:07 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/25 20:33:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ int	speak(t_philo philo, char *msg)
 int	philo_inception(t_philo philo)
 {
 	int	ret;
+	time_t	test;
 
+	test = philo.cycle_time + philo.time_to_eat + philo.time_to_sleep;
 	ret = speak(philo, SLEEP);
-	while (!ret && philo.cycle_time + philo.time_to_eat + philo.time_to_sleep >= get_time())
+	while (!ret && test >= get_time())
 	{
-		usleep(500);
+		usleep(50);
 		ret = is_dead(philo);
 	}
 	if (!ret)
@@ -100,12 +102,13 @@ int	philo_eat(t_philo *philo)
 		ret = take_fork((*philo), (*philo).next_fork, (*philo).fork);
 	if (!ret)
 		speak((*philo), EAT);
+	if (is_gonna_die((*philo).time_to_eat, (*philo).time_to_die))
+	
 	(*philo).cycle_time = get_time();
-	while (!ret && (*philo).cycle_time + (*philo).time_to_eat >= get_time())
-	{
-		usleep(500);
-		ret = is_dead(*philo);
-	}
+
+
+	boucle eat()
+
 	if ((*philo).id % 2 != 1)
 		release_fork((*philo), (*philo).fork, (*philo).next_fork);
 	else 
