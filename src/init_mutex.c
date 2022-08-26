@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:51:16 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/25 16:19:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 19:19:49 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,17 @@ int	init_mutex(t_params *params)
 	params->m_fork = create_mutex(params->fork);
 	if (!params->m_fork)
 		return (1);
+	params->m_cycle = create_mutex(params->fork);
+	if (!params->m_cycle)
+		return (destroy_params(params));
+	if (sc_pthread_mutex_init(&params->m_death, NULL))
+		return (destroy_params(params));
 	params->used = create_used(params->fork);
 	if (!params->used)
-	{
-		end_mutex(params->m_fork, params->fork);
-		return (1);
-	}
+		return (destroy_params(params));
 	if (sc_pthread_mutex_init(&params->m_speak, NULL))
-	{
-		free(params->used);
-		end_mutex(params->m_fork, params->fork);
-		return (1);
-	}
+		return (destroy_params(params));
 	if (sc_pthread_mutex_init(&params->m_death, NULL))
-	{
-		free(params->used);
-		end_mutex(params->m_fork, params->fork);
-		sc_pthread_mutex_destroy(&params->m_speak);
-		return (1);
-	}
+		return (destroy_params(params));
 	return (0);
 }

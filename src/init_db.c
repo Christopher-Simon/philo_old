@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:28:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/25 15:22:32 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 19:20:57 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	print_params(t_params *params, t_philo philo)
 {
 	printf("\nPRINT PARAMS\n");
 	printf("fork : %d\n", params->fork);
+	printf("fork : %p\n", &params->fork);
 	printf("time to die : %d\n", philo.time_to_die);
 	printf("time to eat : %d\n", philo.time_to_eat);
 	printf("time to sleep : %d\n", philo.time_to_sleep);

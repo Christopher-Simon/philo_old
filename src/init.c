@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:42:22 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/26 12:44:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 18:54:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_params	*get_params(char **argv)
 	if (!params)
 		return (NULL);
 	params->fork = ft_atoi(argv[1]);
+	params->time_to_die = ft_atoi(argv[2]);
+	params->time_to_eat = ft_atoi(argv[3]);
+	params->time_to_sleep = ft_atoi(argv[4]);
 	return (params);
 }
 

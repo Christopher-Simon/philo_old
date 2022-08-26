@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/26 12:43:29 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 19:13:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,23 @@
 
 //DEFINE DEBUG
 
-# define DB_PARAMS	0
-# define DB_PHILO	0
-# define DB_PRMS_TH	0
+# define DB_PARAMS	1
+# define DB_PHILO	1
+# define DB_PRMS_TH	1
 
 typedef struct s_params
 {
 	pthread_mutex_t	*m_fork;
+	pthread_mutex_t	*m_cycle;
 	int				*used;
 	pthread_mutex_t	m_speak;
 	int				fork;
 	int				death;
 	pthread_mutex_t	m_death;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	time_t			init_time;
 } t_params;
 
 
@@ -81,6 +86,7 @@ int			sc_gettimeofday(struct timeval *restrict tv, struct timezone *restrict tz)
 //INIT
 t_params	*get_params(char **argv);
 int			init_struct_philo(char **argv,t_philo **philo);
+int			destroy_params(t_params *params);
 int			destroy_philo(t_philo *philo);
 void		print_philo(t_philo *philo);
 
@@ -105,6 +111,7 @@ int		speak(t_philo philo, char *msg);
 int		saint_chro_start(t_philo philo);
 int		is_dead(t_philo philo);
 int		is_one_dead(t_philo philo);
+int		update_cycle(t_philo *philo);
 
 int		is_gonna_die(time_t wait_time, time_t death_time);
 time_t	time_to_wait(time_t wait_time, time_t death_time);

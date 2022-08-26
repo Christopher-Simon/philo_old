@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 13:42:37 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/26 15:49:22 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 19:31:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ time_t	time_to_wait(time_t wait_time, time_t death_time)
 	if (wait_time > death_time)
 		return (death_time);
 	return (wait_time);
+}
+
+int	update_cycle(t_philo *philo)
+{
+	pthread_mutex_lock(&(*philo).params->m_cycle[philo->fork]);
+	printf("mutex %d\n", philo->fork);
+	(*philo).cycle_time = get_time();
+	printf("%ld\n", (*philo).cycle_time);
+	pthread_mutex_unlock(&(*philo).params->m_cycle[philo->fork]);
+	return (0);
 }
 
 
