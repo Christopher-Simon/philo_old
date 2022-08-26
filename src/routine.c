@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:33:46 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/25 20:33:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 15:41:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,41 +33,55 @@ int	speak(t_philo philo, char *msg)
 int	philo_inception(t_philo philo)
 {
 	int	ret;
-	time_t	test;
+	time_t	now;
+	time_t	wait;
 
-	test = philo.cycle_time + philo.time_to_eat + philo.time_to_sleep;
 	ret = speak(philo, SLEEP);
-	while (!ret && test >= get_time())
-	{
-		usleep(50);
+	now = get_time();
+	wait = time_to_wait(now + philo.time_to_sleep,
+		philo.cycle_time + philo.time_to_die);
+	while (!ret && wait >= get_time())
+		usleep(90);
+	if (philo.cycle_time + philo.time_to_die < get_time())
 		ret = is_dead(philo);
-	}
 	if (!ret)
 		speak(philo, THINK);
-	// if (philo.impair)
-	// 	usleep(50000);
+	if (philo.impair)
+	{
+		wait = wait + philo.time_to_eat / 2;
+		while (!ret && wait >= get_time())
+			usleep(90);
+	}
 	return (ret);
 }
 
 int	action_fork(t_philo philo, int fork)
 {
-	int	ret;
-	int	taken;
+	int		ret;
+	int		taken;
+	time_t	wait;
+	int		you_sleep;
 
 	ret = 0;
 	taken = 1;
+	wait = philo.cycle_time + philo.time_to_die;
 	while (taken)
 	{
-		if (is_dead(philo))
-			return (1);
 		pthread_mutex_lock(&philo.params->m_fork[fork]);
 		if (philo.params->used[fork] == DISPO)
 		{
 			philo.params->used[fork] = UNDISPO;
 			taken = 0;
+			you_sleep = 0;
 			ret = speak(philo, TAKE);
 		}
+		else
+			you_sleep = 1;
 		pthread_mutex_unlock(&philo.params->m_fork[fork]);
+		if (wait < get_time())
+			return (is_dead(philo));
+		if (you_sleep)
+			usleep(90);
 	}
 	return (ret);
 }
@@ -93,22 +107,22 @@ void	release_fork(t_philo philo, int fork_1, int fork_2)
 
 int	philo_eat(t_philo *philo)
 {
-	int	ret;
+	int		ret;
+	time_t	wait;
 
 	ret = 0;
 	if ((*philo).id % 2 != 1)
 		ret = take_fork((*philo), (*philo).fork, (*philo).next_fork);
 	else
 		ret = take_fork((*philo), (*philo).next_fork, (*philo).fork);
-	if (!ret)
-		speak((*philo), EAT);
-	if (is_gonna_die((*philo).time_to_eat, (*philo).time_to_die))
-	
 	(*philo).cycle_time = get_time();
-
-
-	boucle eat()
-
+	speak((*philo), EAT);
+	wait = time_to_wait((*philo).cycle_time + (*philo).time_to_eat,
+		(*philo).cycle_time + (*philo).time_to_die);
+	while (!ret && wait >= get_time())
+		usleep(90);
+	if ((*philo).cycle_time + (*philo).time_to_die < get_time())
+		ret = is_dead(*philo);
 	if ((*philo).id % 2 != 1)
 		release_fork((*philo), (*philo).fork, (*philo).next_fork);
 	else 

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:26:40 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/25 15:33:50 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 12:45:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	threadator(t_philo *philo, t_params *params)
 	set_time_philo(philo, nb_philo); //TODO secu
 	if (create_thread(philo, th_philo, nb_philo))
 		return (1);
-	printf("init-time : %ld\n", philo[0].init_time);
+	// printf("init-time : %ld\n", philo[0].init_time);
 	end_philo_thread(nb_philo, th_philo);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:52:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/25 20:22:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 12:43:29 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@
 
 //DEFINE DEBUG
 
-# define DB_PARAMS	1
-# define DB_PHILO	1
-# define DB_PRMS_TH	1
+# define DB_PARAMS	0
+# define DB_PHILO	0
+# define DB_PRMS_TH	0
 
 typedef struct s_params
 {
@@ -107,6 +107,6 @@ int		is_dead(t_philo philo);
 int		is_one_dead(t_philo philo);
 
 int		is_gonna_die(time_t wait_time, time_t death_time);
-int		wait(time_t wait_time);
+time_t	time_to_wait(time_t wait_time, time_t death_time);
 
 #endif

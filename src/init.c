@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:42:22 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/25 19:27:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 12:44:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	id_philo(t_philo **philo, int nb_philo, t_params *params)
 		else
 			(*philo)[i - 1].next_fork = 0;
 		(*philo)[i - 1].params = params;
-		printf("%d\n", (*philo)[i - 1].id);
-		printf("%p\n", &(*philo)[i - 1].id);
+		// printf("%d\n", (*philo)[i - 1].id);
+		// printf("%p\n", &(*philo)[i - 1].id);
 		i++;
 	}
 }

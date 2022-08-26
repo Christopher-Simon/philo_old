@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 13:42:37 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/25 20:33:00 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 15:49:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	saint_chro_start(t_philo philo)
 {
-	while (philo.init_time >= get_time())
-		usleep(150);
+	while (philo.init_time - 1 >= get_time())
+		usleep(90);
 	return (0);
 }
 
 int	is_dead(t_philo philo)
 {
-	int	ret;
+	// int	ret;
 	time_t	elapsed;
 
-	ret = 0;
-	if (philo.cycle_time + philo.time_to_die < get_time())
-	{
+	// ret = 0;
+	// if (philo.cycle_time + philo.time_to_die < get_time())
+	// {
 		pthread_mutex_lock(&philo.params->m_death);
 		if (philo.params->death == 0)
 		{
@@ -36,48 +36,30 @@ int	is_dead(t_philo philo)
 		}
 		pthread_mutex_unlock(&philo.params->m_death);
 		return (1);
-	}
-	else
-	{
-		pthread_mutex_lock(&philo.params->m_death);
-		ret = philo.params->death;
-		pthread_mutex_unlock(&philo.params->m_death);
-	}
-	return (ret);
+	// }
+	// else
+	// {
+	// 	pthread_mutex_lock(&philo.params->m_death);
+	// 	ret = philo.params->death;
+	// 	pthread_mutex_unlock(&philo.params->m_death);
+	// }
+	// return (ret);
 }
 
-int	is_gonna_die(time_t wait_time, time_t death_time)
+time_t	time_to_wait(time_t wait_time, time_t death_time)
 {
 	if (wait_time > death_time)
-		return (1);
-	return (0);
+		return (death_time);
+	return (wait_time);
 }
 
 
-elapsed
-init_time
-cycle
+// pour le eat :
+// cycle + eat < cycle + die
 
-death if
-
-cycle + attente + eat + sleep
-
+// pour le sleep : 
+// cycle + attente + sleep < cycle + die
+// now + sleep < cycle + die
 
 
-cycle + attente + die
-
-pour le eat :
-cycle + eat < cycle + die
-
-pour le sleep : 
-cycle + attente + sleep < cycle + die
-
-check la mort avant de chopper les fourchettes
-
-
-
-int	wait(time_t wait_time)
-{
-	while (!ret && wait_time >= get_time())
-		usleep(50);
-}
+// check la mort avant de chopper les fourchettes
