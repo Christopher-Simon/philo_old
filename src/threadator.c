@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:26:40 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/26 12:45:23 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 18:08:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	set_time_philo(t_philo *philo, int nb_philo)
 	while (i < nb_philo)
 	{
 		philo[i].init_time = start_time + 1000;
+		philo[i].cycle_time = philo[i].init_time;
 		i++;
 	}
 	return (0);

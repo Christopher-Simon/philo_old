@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 17:53:31 2022
+# Make data base, printed on Fri Aug 26 18:08:53 2022
 
 # Variables
 
@@ -119,7 +119,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/40599/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 202365
+GIO_LAUNCHED_DESKTOP_FILE_PID = 205814
 # automatic
 %F = $(notdir $%)
 # environment
@@ -171,7 +171,7 @@ SHLVL = 2
 # makefile (from 'Makefile', line 25)
 CC = gcc
 # environment
-TERMINATOR_UUID = urn:uuid:6d0c7b62-805f-4849-a7af-9c1bbdddf315
+TERMINATOR_UUID = urn:uuid:dd743c7d-6039-4e05-a757-40acb5f04f17
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -253,7 +253,7 @@ TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
 DOCKER_HOST = unix:///run/user/40599/docker.sock
 # environment
-VSCODE_PID = 202439
+VSCODE_PID = 205972
 # variable set hash-table stats:
 # Load=122/1024=12%, Rehash=0, Collisions=26/165=16%
 
@@ -277,13 +277,13 @@ obj/%.o: src/%.c
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
- 
 # Files
 
 my_lib/lib_my.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 53):
 	make -C my_lib all
 
@@ -494,6 +494,6 @@ obj/sc_mutex.o:
 # strcache performance: lookups = 79 / hit rate = 49%
 # hash-table stats:
 # Load=40/8192=0%, Rehash=0, Collisions=1/79=1%
-# Finished Make data base on Fri Aug 26 17:53:31 2022
+# Finished Make data base on Fri Aug 26 18:08:53 2022
 
  

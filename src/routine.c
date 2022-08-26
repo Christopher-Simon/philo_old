@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:33:46 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/26 15:41:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/26 18:04:40 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ void	routine_test(t_philo philo)
 {
 	if (philo.id % 2 != 1)
 		usleep(10000);
-	philo.cycle_time = philo.init_time;
 	while (philo.round != 0)
 	{
 		if (philo_eat(&philo))
