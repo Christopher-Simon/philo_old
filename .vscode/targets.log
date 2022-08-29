@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 18:08:53 2022
+# Make data base, printed on Mon Aug 29 14:48:11 2022
 
 # Variables
 
@@ -15,145 +15,99 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-DESKTOP_SESSION = ubuntu
+WSLENV = ELECTRON_RUN_AS_NODE/w:
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 21)
+# makefile (from 'Makefile', line 22)
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
-# environment
-XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 3)
-SRC = $(addsuffix .c, main sc_threading threadator routine routine_utils init init_db init_mutex init_time params_utils sc_mutex sc_time )
+SRC = $(addsuffix .c, main sc_threading threadator routine routine_utils shinigami init init_db init_mutex init_time params_utils sc_mutex sc_time )
 # environment
-XDG_SESSION_TYPE = x11
+NVM_INC = /home/christopher/.nvm/versions/node/v18.7.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-XAUTHORITY = /mnt/nfs/homes/chsimon/.Xauthority
-# environment
-GDMSESSION = ubuntu
-# environment
-XMODIFIERS = @im=ibus
+# automatic
+@F = $(notdir $@)
 # makefile
-CURDIR := /mnt/nfs/homes/chsimon/philo
+CURDIR := /home/christopher/philo
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 29)
+# makefile (from 'Makefile', line 30)
 RM = rm -rf
-# environment
-GDM_LANG = en
 # environment
 VTE_VERSION = 6003
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /usr/bin/code
-# makefile (from 'Makefile', line 26)
-CFLAGS = -Wall -Wextra -Werror -g3 -g -pthread
-# environment
-JOURNAL_STREAM = 9:850605
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+_ = /mnt/c/Users/Christopher/AppData/Local/Programs/Microsoft VS Code/bin/code
 # makefile (from 'Makefile', line 27)
+CFLAGS = -Wall -Wextra -Werror -g3 -g -pthread
+# makefile (from 'Makefile', line 34)
+MY_LIB = my_lib/lib_my.a
+# makefile (from 'Makefile', line 28)
 FCFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=thread -g -pthread
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# automatic
-@F = $(notdir $@)
-# environment
-IM_CONFIG_PHASE = 1
 # 'override' directive
 GNUMAKEFLAGS := 
-# makefile (from 'Makefile', line 20)
+# makefile (from 'Makefile', line 21)
 OBJ_DIR = obj
 # environment
-MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
-# environment
-XDG_DATA_DIRS = /usr/share/gnome:/usr/share/ubuntu:/mnt/nfs/homes/chsimon/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/40599/bus
-# environment
-MANAGERPID = 201514
-# makefile (from 'Makefile', line 31)
+TERMINATOR_UUID = urn:uuid:302b7631-f578-4b19-8b44-72be4fb8bac7
+# makefile (from 'Makefile', line 32)
 INCS = -I inc -I my_lib/includes
 # environment
-VSCODE_CWD = /mnt/nfs/homes/chsimon/philo
-# environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
-# environment
-KRB5CCNAME = FILE:/tmp/krb5cc_40599_lHZ7F0
+VSCODE_CWD = /mnt/c/Users/Christopher/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /mnt/nfs/homes/chsimon/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-# environment
-GPG_AGENT_INFO = /run/user/40599/gnupg/S.gpg-agent:0:1
+PATH = /home/christopher/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/christopher/.nvm/versions/node/v18.7.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Devs/rubyinstaller-2.6.5-1-x64/bin:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/dotnet/:/mnt/c/Devs/Ruby26-x64/bin:/mnt/c/Devs/RailsInstaller/Git/cmd:/mnt/c/Devs/RailsInstaller/Ruby2.3.3/bin:/mnt/c/Ruby26-x64/bin:/mnt/c/RailsInstaller/Ruby2.3.3/bin:/mnt/c/RailsInstaller/Git/cmd:/mnt/c/RailsInstaller/Ruby2.2.0/bin:/mnt/c/Users/Christopher/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/Christopher/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Christopher/AppData/Local/Programs/Microsoft VS Code/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r9p5.clusters.42paris.fr:@/tmp/.ICE-unix/202038,unix/e1r9p5.clusters.42paris.fr:/tmp/.ICE-unix/202038
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
-XDG_RUNTIME_DIR = /run/user/40599
-# environment
-XDG_MENU_PREFIX = gnome-
+NVM_BIN = /home/christopher/.nvm/versions/node/v18.7.0/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = cc3a99cc04434b4daaf71588afb945e0
-# makefile (from 'Makefile', line 36)
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-4d790ddd-b7ca-488e-905a-9ca4b2b0752d.sock
+# makefile (from 'Makefile', line 37)
 LIB = lib_my.a
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/chsimon
-# environment
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
-# makefile (from 'Makefile', line 33)
-MY_LIB = my_lib/lib_my.a
-# environment
-XDG_SESSION_DESKTOP = ubuntu
-# environment
-SSH_AUTH_SOCK = /run/user/40599/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 205814
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :0
 # environment
-PWD = /mnt/nfs/homes/chsimon/philo
+PWD = /home/christopher/philo
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 202002
+WSL_INTEROP = /run/WSL/8_interop
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# environment
-GTK_MODULES = gail:atk-bridge
+PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /mnt/nfs/homes/chsimon
+HOME = /home/christopher
 # environment
-VSCODE_CLI = 1
+LOGNAME = christopher
 # environment
-VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/chsimon/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
-LOGNAME = chsimon
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# makefile (from 'Makefile', line 35)
+NVM_CD_FLAGS = -q
+# makefile (from 'Makefile', line 36)
 PATH_LIB = my_lib/
 # environment
-ZSH = /mnt/nfs/homes/chsimon/.oh-my-zsh
+ZSH = /home/christopher/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -165,83 +119,71 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-QT_IM_MODULE = ibus
-# environment
-SHLVL = 2
-# makefile (from 'Makefile', line 25)
+SHLVL = 1
+# makefile (from 'Makefile', line 26)
 CC = gcc
-# environment
-TERMINATOR_UUID = urn:uuid:dd743c7d-6039-4e05-a757-40acb5f04f17
 # default
 MAKE_VERSION := 4.2.1
 # environment
-USER = chsimon
+USER = christopher
 # makefile
 .DEFAULT_GOAL := all
-# environment
-XDG_CURRENT_DESKTOP = Unity
-# environment
-LIBVIRT_DEFAULT_URI = qemu:///system
+# makefile (from 'Makefile', line 1)
+NAME = philo
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Christopher/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /mnt/nfs/homes/chsimon
+OLDPWD = /mnt/c/Users/Christopher/AppData/Local/Programs/Microsoft VS Code
 # environment
 TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
-# environment
-LANGUAGE = en
-# environment
-XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
-# environment
-VSCODE_IPC_HOOK = /run/user/40599/vscode-d79ec732-1.69.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /home/christopher/.nvm
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# environment
-GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-QT_ACCESSIBILITY = 1
-# environment
-DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
+VSCODE_HANDLES_SIGPIPE = true
 # default
 MAKEFILES := 
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 19)
 SRC_DIR = src
 # automatic
 <F = $(notdir $<)
-# makefile (from 'Makefile', line 37)
+# makefile (from 'Makefile', line 38)
 MAKELIB = make -C $(PATH_LIB)
 # environment
 PAGER = less
 # environment
 LC_ALL = C
+# environment
+HOSTTYPE = x86_64
 # automatic
 ^F = $(notdir $^)
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 24)
 DEPS = $(OBJ:.o=.d)
 # default
 SUFFIXES := 
 # environment
-CHROME_DESKTOP = code-url-handler.desktop
+WAYLAND_DISPLAY = wayland-0
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# makefile (from 'Makefile', line 1)
-NAME = philo
 # default
 .RECIPEPREFIX := 
 # environment
@@ -249,13 +191,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3
 # environment
-DOCKER_HOST = unix:///run/user/40599/docker.sock
-# environment
-VSCODE_PID = 205972
+WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=122/1024=12%, Rehash=0, Collisions=26/165=16%
+# Load=92/1024=9%, Rehash=0, Collisions=11/136=8%
 
 # Pattern-specific Variable Values
 
@@ -263,15 +203,15 @@ VSCODE_PID = 205972
 
 # Directories
 
-# . (device 59, inode 231807431): 12 files, no impossibilities.
-# src (device 59, inode 285190648): No files, no impossibilities so far.
+# . (device 2080, inode 74740): 11 files, no impossibilities.
+# src (device 2080, inode 101516): No files, no impossibilities so far.
 
-# 12 files, no impossibilities in 2 directories.
+# 11 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: src/%.c
-#  recipe to execute (from 'Makefile', line 49):
+#  recipe to execute (from 'Makefile', line 50):
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
 
@@ -283,8 +223,7 @@ my_lib/lib_my.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 54):
 	make -C my_lib all
 
 lib_my.a:
@@ -311,7 +250,7 @@ lib_my.a:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=2/13=15%
-#  recipe to execute (from 'Makefile', line 46):
+#  recipe to execute (from 'Makefile', line 47):
 	$(MAKELIB)
 
 # Not a target:
@@ -336,14 +275,15 @@ all: philo
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-philo: lib_my.a obj/main.o obj/sc_threading.o obj/threadator.o obj/routine.o obj/routine_utils.o obj/init.o obj/init_db.o obj/init_mutex.o obj/init_time.o obj/params_utils.o obj/sc_mutex.o obj/sc_time.o
+philo: lib_my.a obj/main.o obj/sc_threading.o obj/threadator.o obj/routine.o obj/routine_utils.o obj/shinigami.o obj/init.o obj/init_db.o obj/init_mutex.o obj/init_time.o obj/params_utils.o obj/sc_mutex.o obj/sc_time.o
+ 
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-26 15:49:24.915832248
+#  Last modified 2022-08-29 14:40:15.8130919
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from 'Makefile', line 43):
+#  recipe to execute (from 'Makefile', line 44):
 	$(CC) $(CFLAGS) $(OBJ) -L my_lib -o $@ $(INCS) -l_my
 
 .PHONY: all clean fclean re bonus
@@ -366,7 +306,7 @@ obj/main.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 19:47:58.307080071
+#  Last modified 2022-08-29 14:48:10.7530919
 #  File has been updated.
 #  Successfully updated.
 
@@ -387,10 +327,16 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 69):
+#  recipe to execute (from 'Makefile', line 70):
 	make -C my_lib fclean
 	$(RM) $(NAME)
 	$(RM) my_lib/lib_my.a
+
+# Not a target:
+obj/shinigami.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj/init_db.o:
@@ -398,11 +344,11 @@ obj/init_db.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-testf: my_lib/lib_my.a obj/main.o obj/sc_threading.o obj/threadator.o obj/routine.o obj/routine_utils.o obj/init.o obj/init_db.o obj/init_mutex.o obj/init_time.o obj/params_utils.o obj/sc_mutex.o obj/sc_time.o
+testf: my_lib/lib_my.a obj/main.o obj/sc_threading.o obj/threadator.o obj/routine.o obj/routine_utils.o obj/shinigami.o obj/init.o obj/init_db.o obj/init_mutex.o obj/init_time.o obj/params_utils.o obj/sc_mutex.o obj/sc_time.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	$(CC) $(FCFLAGS) $(OBJ) -L my_lib -o $(NAME) $(INCS) -l_my
 	# @./$(NAME)
 
@@ -416,7 +362,7 @@ testv: all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
+#  recipe to execute (from 'Makefile', line 62):
 	--tool=drd \
 	valgrind ./$(NAME)
 
@@ -431,7 +377,7 @@ re:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 75):
 		make fclean
 		make all
 
@@ -440,7 +386,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 66):
 	make -C my_lib clean
 	$(RM) $(OBJ) $(BOBJ)
 
@@ -481,19 +427,19 @@ obj/sc_mutex.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=0/74=0%
+# Load=27/1024=3%, Rehash=0, Collisions=0/77=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 40 / storage = 389 B / avg = 9 B
-# current buf: size = 8162 B / used = 389 B / count = 40 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 399 B / avg = 9 B
+# current buf: size = 8162 B / used = 399 B / count = 40 / avg = 9 B
 
-# strcache performance: lookups = 79 / hit rate = 49%
+# strcache performance: lookups = 80 / hit rate = 50%
 # hash-table stats:
-# Load=40/8192=0%, Rehash=0, Collisions=1/79=1%
-# Finished Make data base on Fri Aug 26 18:08:53 2022
+# Load=40/8192=0%, Rehash=0, Collisions=1/80=1%
+# Finished Make data base on Mon Aug 29 14:48:11 2022
 
  

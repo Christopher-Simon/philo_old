@@ -6,6 +6,7 @@ SRC		=	$(addsuffix .c, \
 	threadator \
 	routine \
 	routine_utils \
+	shinigami \
 	init \
 	init_db \
 	init_mutex \

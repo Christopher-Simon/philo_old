@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   params_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:40:17 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/26 19:18:02 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/27 19:13:28 by christopher      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	destroy_params(t_params *params)
 		end_mutex(params->m_fork, params->fork);
 	if (&params->m_speak)
 		sc_pthread_mutex_destroy(&params->m_speak);
+	if (&params->m_stop)
+		sc_pthread_mutex_destroy(&params->m_stop);
 	if (&params->m_death)
 		sc_pthread_mutex_destroy(&params->m_death);
 	if (params->used)

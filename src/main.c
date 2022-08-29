@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 09:41:05 by chsimon           #+#    #+#             */
-/*   Updated: 2022/08/26 19:19:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:31:18 by christopher      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ int	philo(char **argv)
 		return (1);
 	if (init_mutex(philo[0].params))
 	{
-		free(philo);
+		destroy_philo(philo);
 		return (1);
 	}
 	if (DB_PARAMS)
 		print_params(philo[0].params, philo[0]);
 	if (DB_PHILO)
-		print_philo(philo);
+		print_all_philo(philo);
+	
 	ret = threadator(philo, philo[0].params);
 	destroy_philo(philo);
 	return (ret);

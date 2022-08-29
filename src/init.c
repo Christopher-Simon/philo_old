@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: christopher <christopher@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:42:22 by christopher       #+#    #+#             */
-/*   Updated: 2022/08/26 18:54:22 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:26:01 by christopher      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	set_philo(t_philo **philo, int nb_philo, char **argv)
 	return (0);
 }
 
-int	init_struct_philo(char **argv,t_philo **philo)
+int	init_struct_philo(char **argv, t_philo **philo)
 {
 	int		nb_philo;
 
